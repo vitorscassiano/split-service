@@ -1,0 +1,12 @@
+version: "3"
+services:
+  db:
+    image: postgres:9.6-alpine
+    volumes:
+      - ./scripts/:/docker-entrypoint-initdb.d/:ro
+   ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: schemaless
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: schemaless
